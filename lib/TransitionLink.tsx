@@ -6,7 +6,7 @@ interface Props {
   href: string;
   label?: string;
   className?: string;
-  children?: React.RefAttributes<HTMLAnchorElement>;
+  children?: any;
 }
 
 const TransitionLink = ({ href, label, className, children }: Props) => {
