@@ -217,8 +217,8 @@ const Page = () => {
                   necessary
                 </li>
                 <li>
-                  Monitoring contractors' progress and performance to ensure
-                  conformity with contract requirements
+                  Monitoring contractors&apos; progress and performance to
+                  ensure conformity with contract requirements
                 </li>
                 <li>
                   Authorizing payments in consistency with the contract terms
