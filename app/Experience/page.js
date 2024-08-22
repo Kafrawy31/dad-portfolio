@@ -92,7 +92,7 @@ const Page = () => {
         </div>
         <div className="last-container flex flex-col justify-center mt-[3rem] items-center">
           <div className="bg-white rounded-md flex flex-col w-[80%] items-center">
-            <Image src={dara} width={40} height={40} />
+            <Image src={dara} width={40} height={40} alt="" />
             <h2 className="font-bold text-xl">Senior Project Manager</h2>
             <h3>Dara Engineering Consultants</h3>
             <small className="italic font-semibold">09/2011 - 08/2024</small>
@@ -192,7 +192,7 @@ const Page = () => {
                 submitted to Owners regularly.
               </li>
               <li>
-                Reviewing and commenting on Contractor's architectural
+                Reviewing and commenting on Contractor&apos;s architectural
                 proposals, submittals of shop drawings, as-built drawings, etc.
               </li>
               <li>
@@ -214,7 +214,7 @@ const Page = () => {
         </div>
 
         <div className="r-container t-container py-[10px] px-[50px] w-[50%] relative">
-          <Image src={jal} />
+          <Image src={jal} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Project Manager</h2>
             <h2 className="font-bold text-xl">
@@ -227,7 +227,7 @@ const Page = () => {
                 <span className="font-bold italic">
                   JAL (Japanese Airlines) Hotel
                 </span>{" "}
-                on Dubai's Sheikh Zayed Road, UAE, with a budget of{" "}
+                on Dubai&apos;s Sheikh Zayed Road, UAE, with a budget of{" "}
                 <span className="font-bold italic">1.5 billion AED</span>.
                 <ul className="list-disc pl-5">
                   <li>
@@ -291,7 +291,7 @@ const Page = () => {
         </div>
 
         <div className="l-container t-container hiddenhidden py-[10px] px-[50px] w-[50%] relative">
-          <Image src={fourSeasons} />
+          <Image src={fourSeasons} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Project Manager</h2>
             <h2 className="font-bold text-xl">Four Seasons Hotel</h2>
@@ -327,7 +327,7 @@ const Page = () => {
         </div>
 
         <div className="r-container t-container hiddenhidden py-[10px] px-[50px] w-[50%] relative">
-          <Image src={uaeFlag} />
+          <Image src={uaeFlag} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Project Manager</h2>
             <h2 className="font-bold text-xl">Abbco, Malak & Easa Towers</h2>
@@ -364,8 +364,9 @@ const Page = () => {
                 </ul>
               </li>
               <li>
-                Supervised interior and MEP works of Dimensions' headquarters.
-                Received a certificate of appreciation for outstanding quality.
+                Supervised interior and MEP works of Dimensions&apos;
+                headquarters. Received a certificate of appreciation for
+                outstanding quality.
               </li>
               <li>
                 <span className="text-lg font-semibold">Responsibilities:</span>
@@ -389,7 +390,7 @@ const Page = () => {
         </div>
 
         <div className="l-container t-container hiddenhidden py-[10px] px-[50px] w-[50%] relative">
-          <Image src={miramar} />
+          <Image src={miramar} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Project Manager</h2>
             <h2 className="font-semibold text-xl">Miramar Resort</h2>
@@ -434,7 +435,7 @@ const Page = () => {
         </div>
 
         <div className="r-container t-container hiddenhidden py-[10px] px-[50px] w-[50%] relative">
-          <Image src={adapt} />
+          <Image src={adapt} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Project Manager</h2>
             <h2 className="font-semibold text-xl">
@@ -514,7 +515,7 @@ const Page = () => {
         </div>
 
         <div className="l-container t-container hiddenhidden py-[10px] px-[50px] w-[50%] relative">
-          <Image src={escher} />
+          <Image src={escher} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Site Manager</h2>
             <h2 className="font-semibold text-xl">Soceite Escher</h2>
@@ -559,7 +560,7 @@ const Page = () => {
         </div>
 
         <div className="r-container t-container hiddenhidden py-[10px] px-[50px] w-[50%] relative">
-          <Image src={adapt} />
+          <Image src={adapt} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Designer & Site Engineer</h2>
             <h2 className="font-semibold text-xl">
@@ -624,7 +625,7 @@ const Page = () => {
         </div>
 
         <div className="l-container t-container hiddenhidden py-[10px] px-[50px] w-[50%] relative">
-          <Image src={GTZ} />
+          <Image src={GTZ} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Designer & Site Engineer</h2>
             <h2 className="font-semibold text-xl">
@@ -633,7 +634,7 @@ const Page = () => {
             <small className="italic font-semibold">03/1992 - 11/1993</small>
             <ul className="pl-5 list-disc">
               <li>
-                Urban and Utilities Upgrading of Aswan’s{" "}
+                Urban and Utilities Upgrading of Aswan&apos;s{" "}
                 <span className="font-bold italic">Tabia</span> and{" "}
                 <span className="font-bold italic">Naseriya Districts</span>;
                 designed and supervised an ideal neighborhood in{" "}
@@ -650,7 +651,7 @@ const Page = () => {
         </div>
 
         <div className="r-container t-container hiddenhidden py-[10px] px-[50px] w-[50%] relative">
-          <Image src={delta} />
+          <Image src={delta} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Designer</h2>
             <h2 className="font-semibold text-xl">Delta Consultants</h2>
@@ -679,7 +680,7 @@ const Page = () => {
         </div>
 
         <div className="l-container hiddenhidden t-container py-[10px] px-[50px] w-[50%] relative">
-          <Image src={bakry} />
+          <Image src={bakry} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Designer</h2>
             <h2 className="font-semibold text-xl">Bakry</h2>
@@ -698,7 +699,7 @@ const Page = () => {
         </div>
 
         <div className="r-container hiddenhidden t-container py-[10px] px-[50px] w-[50%] relative">
-          <Image src={arco} />
+          <Image src={arco} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">Designer</h2>
             <h2 className="font-semibold text-xl">Arco Consultants</h2>
@@ -736,7 +737,7 @@ const Page = () => {
         </div>
 
         <div className="l-container hiddenhidden t-container py-[10px] px-[50px] w-[50%] relative">
-          <Image src={cairoUni} />
+          <Image src={cairoUni} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">
               B.Sc. of Architecture - Faculty of Engineering
