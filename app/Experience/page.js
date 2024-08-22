@@ -17,6 +17,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import TransitionLink from "@/lib/TransitionLink";
 import DotPattern from "../components/DotPattern";
+import HyperText from "../components/hyper-text";
 
 const Page = () => {
   useEffect(() => {
@@ -80,18 +81,235 @@ const Page = () => {
   return (
     <div className="w-screen h-auto z-[-10] bg-slate-800 overflow-hidden absolute">
       <div className="timeline">
-        {Array.from({ length: 70 }).map((_, index) => (
+        {Array.from({ length: 80 }).map((_, index) => (
           <div
             key={index}
             className="timeline-segment"
             style={{ top: `${(index + 1) * 100}px` }}
           ></div>
         ))}
-        <div className="flex flex-col relative top-0 text-center mb-4">
-          <p className="text-4xl text-white">Work Experience</p>
+        <div className="flex flex-col relative items-center top-0 text-center mb-4">
+          <HyperText
+            text="Work Experience"
+            className="text-4xl text-[#14ff72cb] italic"
+            duration={0.5}
+          />
         </div>
-        <div className="last-container flex flex-col justify-center mt-[3rem] items-center">
-          <div className="bg-white rounded-md flex flex-col w-[80%] items-center">
+
+        <div className="last-container flex flex-col justify-center items-center">
+          <div className="bg-white rounded-md hiddenhidden flex flex-row w-[80%] items-start justify-between mb-6">
+            <div className="w-full">
+              <h2 className="font-bold text-xl italic">Key Projects:</h2>
+              <ul>
+                <li>
+                  <span className="font-bold italic">
+                    Twin Tower including JAL (Japanese Airlines) hotel on Sheikh
+                    Zayed Rd., Dubai, UAE
+                  </span>
+                  <ul className="list-disc ml-6">
+                    <li>471 rooms</li>
+                    <li>Cost: AED 1.5 billion</li>
+                    <li>Designer: M/S BRT, Germany</li>
+                    <li>Interior Designer: M/s HBA, UAE</li>
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-bold italic">
+                    IBEROTEL MIRAMAR RESORT-Aqqa, Fujairah, UAE
+                  </span>
+                  <ul className="list-disc ml-6">
+                    <li>5-star hotel</li>
+                    <li>323 hotel rooms</li>
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-bold italic">New Wajba Palace</span>
+                  <ul className="list-disc ml-6">
+                    <li>Cost: QR 550,000,000</li>
+                    <li>Interior Designer: M/s Alberto Pinto, France</li>
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-bold italic">Beach Palace</span>
+                  <ul className="list-disc ml-6">
+                    <li>Cost: QR 500,000,000</li>
+                    <li>Interior Designer: M/s Remi Teiser, France</li>
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-bold italic">
+                    Doha Mall in Abu Hamour
+                  </span>
+                  <ul className="list-disc ml-6">
+                    <li>Cost: QR 1.2 billion</li>
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-bold italic">
+                    Al-Mirqab Mall at the Commercial Street (Al Nasr Road) and
+                    Barazan Mall at Alkuraitiat Commercial area
+                  </span>
+                </li>
+                <li>
+                  <span className="font-bold italic">
+                    The first tower in Giza, including the Four-season hotel,
+                    Egypt
+                  </span>
+                  <ul className="list-disc ml-6">
+                    <li>Supervised finishing works</li>
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-bold italic">
+                    Robinson and Sheraton Abu Suma hotels, Safaga, Egypt
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-white hiddenhidden rounded-md flex flex-row w-[80%] items-start justify-between mb-6">
+            <div className="w-full">
+              <h2 className="text-xl font-bold italic">
+                Professional Responsibilities (1/3):
+              </h2>
+              <ul className="list-disc ml-6">
+                <li>Management and supervision</li>
+                <li>Project planning and management</li>
+                <li>Providing technical support to the teams</li>
+                <li>Preparing contract documents</li>
+                <li>
+                  Coordination between:
+                  <ul className="list-disc ml-6">
+                    <li>Clients</li>
+                    <li>Interior designers</li>
+                    <li>Local consultants</li>
+                    <li>Main contractors</li>
+                    <li>Subcontractors</li>
+                  </ul>
+                </li>
+                <li>
+                  Providing technical support for post-contract activities
+                </li>
+                <li>
+                  Ensuring work is done according to approved drawings and
+                  project specifications
+                </li>
+                <li>
+                  Monitoring the project budget and taking corrective action if
+                  needed
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-white hiddenhidden rounded-md flex flex-row w-[80%] items-start justify-between mb-6">
+            <div className="w-full">
+              <h2 className="text-xl font-bold italic">
+                Professional Responsibilities (2/3):
+              </h2>
+              <ul className="list-disc ml-6">
+                <li>Monitoring implementation of QA/QC</li>
+                <li>Liaising with clients and local authorities</li>
+                <li>Attending all progress and technical meetings</li>
+                <li>
+                  Participating in solicitation and drafting documents as
+                  necessary
+                </li>
+                <li>
+                  Monitoring contractors' progress and performance to ensure
+                  conformity with contract requirements
+                </li>
+                <li>
+                  Authorizing payments in consistency with the contract terms
+                </li>
+                <li>
+                  Exercising state remedies and resolving site problems as
+                  appropriate where contractor performance is deficient
+                </li>
+                <li>Resolving disputes in a timely manner</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-white hiddenhidden rounded-md flex flex-row w-[80%] items-start justify-between">
+            <div className="w-full">
+              <h2 className="text-xl font-bold italic">
+                Professional Responsibilities (3/3):
+              </h2>
+              <ul className="list-disc ml-6">
+                <li>
+                  Documenting significant events and milestones of the project
+                </li>
+                <li>Maintaining appropriate records</li>
+                <li>
+                  Determining:
+                  <ul className="list-disc ml-6">
+                    <li>Sequence of activities</li>
+                    <li>Dependencies</li>
+                    <li>Required or desired outcomes</li>
+                    <li>Acceptable performance levels</li>
+                  </ul>
+                </li>
+                <li>
+                  Developing a timetable with start and end dates for each
+                  performance component
+                </li>
+                <li>
+                  Including milestones with accompanying timeframes and
+                  monitoring/reporting requirements
+                </li>
+                <li>
+                  Supervising and monitoring contractor activity to identify
+                  problem areas
+                </li>
+                <li>
+                  Meeting with the contractor regularly to review progress,
+                  discuss problems, and consider necessary changes
+                </li>
+                <li>
+                  Providing access to state facilities, equipment, data, staff,
+                  materials, and information
+                </li>
+                <li>
+                  Contacting other staff as necessary to provide equipment and
+                  data
+                </li>
+                <li>
+                  Establishing:
+                  <ul className="list-disc ml-6">
+                    <li>Scope of authority</li>
+                    <li>Clear lines of communication and reporting</li>
+                    <li>
+                      Specific individuals who will interact directly with the
+                      contractor
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Establishing control of correspondence, data, and reports
+                </li>
+                <li>Identifying potential problems and solutions</li>
+                <li>Defining terms or conditions of default</li>
+                <li>
+                  Establishing procedures for:
+                  <ul className="list-disc ml-6">
+                    <li>
+                      Identifying responsible parties and establishing
+                      timeframes for handling non-compliance
+                    </li>
+                    <li>
+                      Making necessary contract decisions or modifications
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="last-container hiddenhidden flex flex-col justify-center mt-[3rem] items-center">
+          <div className="bg-white rounded-md flex flex-col w-[80%] items-center mb-12">
             <Image src={dara} width={40} height={40} alt="" />
             <h2 className="font-bold text-xl">Senior Project Manager</h2>
             <h3>Dara Engineering Consultants</h3>
