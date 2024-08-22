@@ -234,7 +234,9 @@ const Page = () => {
           <Card
             subtitle1="Proficient in:"
             description1="AutoCAD - Excel - Word - Powerpoint - Outlook - Photoshop - Power BI"
-            icon={<AceternityIcon order="Computer Skills" />}
+            subtitle2="Languages spoken:"
+            description2="English(proficient) & Aracic(native)"
+            icon={<AceternityIcon order="Computer Skills & langages spoken" />}
           >
             <CanvasRevealEffect
               animationSpeed={3}
