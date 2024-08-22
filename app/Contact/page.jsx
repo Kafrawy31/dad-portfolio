@@ -740,7 +740,7 @@ const Page = () => {
           <Image src={cairoUni} alt="" />
           <div className="text-box px-[20px] py-[30px] relative bg-white rounded-md border-2">
             <h2 className="font-bold text-xl">
-              B.Sc. of Architecture - Faculty of Engineering
+              B.Sc. of Architecture -- Faculty of Engineering
             </h2>
             <small className="italic font-semibold">1988</small>
             <p className="font-semibold text-lg">Cairo, Egypt</p>
