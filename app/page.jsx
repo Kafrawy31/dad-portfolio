@@ -56,7 +56,7 @@ const LoadingPage = () => {
               text="Welcome to my portfolio"
               className="ml-2 text-2xl"
               animateOnLoad={false}
-              delay={7200}
+              delay={8200}
             />
           </div>
           <div className="flex w-[40%] flex-col items-center">
