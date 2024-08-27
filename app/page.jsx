@@ -88,7 +88,7 @@ const LoadingPage = () => {
               </p>
             </BoxReveal>
 
-            <BoxReveal duration={1.2} delay={2.6}>
+            <BoxReveal duration={1.2} delay={10.6}>
               <p className="font-thin text-3xl mt-[2rem]">Education</p>
             </BoxReveal>
             <BoxReveal className="w-[40%]" delay={2.9} duration={2}>
