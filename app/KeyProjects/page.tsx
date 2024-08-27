@@ -1,174 +1,679 @@
 "use client";
 import React from "react";
-import adapt from "../../public/dad-logos/adapt.jpg";
-import arco from "../../public/dad-logos/arco.jpg";
-import bakry from "../../public/dad-logos/bakry.jpg";
-import cairoUni from "../../public/dad-logos/cairo-university.png";
-import dara from "../../public/dad-logos/dara.png";
-import delta from "../../public/dad-logos/delta.jpg";
-import GTZ from "../../public/dad-logos/GTZ-Logo.png";
-import escher from "../../public/dad-logos/escher.jpg";
-import fourSeasons from "../../public/dad-logos/four-seasons.png";
-import jal from "../../public/dad-logos/japanese-airlines-logo.jpg";
-import miramar from "../../public/dad-logos/miramar.png";
-import uaeFlag from "../../public/dad-logos/uae-flag.png";
-import Image from "next/image";
-import { useEffect } from "react";
-import Link from "next/link";
-import TransitionLink from "@/lib/TransitionLink";
+import { GlareCard } from "../components/glare-card";
 import DotPattern from "../components/DotPattern";
 import HyperText from "../components/hyper-text";
-
+import BoxReveal from "../components/box-reveal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleArrowDown } from "@fortawesome/free-solid-svg-icons";
 const Page = () => {
-  useEffect(() => {
-    const segments = document.querySelectorAll(".timeline-segment");
+  const scrollToNextSection = (section: string) => {
+    const targetSection = document.getElementById(section);
+    if (targetSection) {
+      // Calculate the offset to scroll the target to the middle of the viewport
+      const offsetPosition =
+        targetSection.offsetTop -
+        window.innerHeight / 2 +
+        targetSection.offsetHeight / 2;
 
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.intersectionRatio >= 0.8) {
-            // Trigger when 50% of the element is visible
-            entry.target.classList.add("show-segment");
-            observer.unobserve(entry.target); // Stop observing after revealing
-          }
-        });
-      },
-      {
-        threshold: [0.1], // Trigger at different visibility levels
-      }
-    );
-
-    segments.forEach((segment) => {
-      observer.observe(segment);
-    });
-
-    // Cleanup the observer on unmount
-    return () => {
-      if (observer) {
-        observer.disconnect();
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    const elements = document.querySelectorAll(".hiddenhidden");
-
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.4, // Trigger when 90% of the element is visible
-      }
-    );
-
-    elements.forEach((element) => {
-      observer.observe(element);
-    });
-
-    return () => {
-      if (observer) {
-        observer.disconnect();
-      }
-    };
-  }, []);
-
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
-    <div className="w-screen h-auto z-[-10] bg-slate-800 overflow-hidden absolute">
-      <div className="timeline">
-        {Array.from({ length: 80 }).map((_, index) => (
-          <div
-            key={index}
-            className="timeline-segment"
-            style={{ top: `${(index + 1) * 100}px` }}
-          ></div>
-        ))}
-        <div className="flex flex-col relative items-center top-0 text-center mb-4">
-          <HyperText
-            text="Work Experience"
-            className="text-4xl text-[#14ff72cb] italic"
-            duration={0.5}
+    <div>
+      <div className="flex flex-col h-screen justify-center items-center w-screen mt-10">
+        <HyperText text="Key Projects" className="text-white text-2xl" />
+        <button onClick={() => scrollToNextSection("HighRise")}>
+          <FontAwesomeIcon
+            icon={faCircleArrowDown}
+            className="mt-2"
+            style={{ color: "#14ff72cb" }}
+            size="2x"
           />
-        </div>
-
-        <div className="last-container flex flex-col justify-center items-center">
-          <div className="bg-white rounded-md hiddenhidden flex flex-row w-[80%] items-start justify-between mb-6">
-            <div className="w-full">
-              <h2 className="font-bold text-xl italic">Key Projects:</h2>
-              <ul>
-                <li>
-                  <span className="font-bold italic">
-                    Twin Tower including JAL (Japanese Airlines) hotel on Sheikh
-                    Zayed Rd., Dubai, UAE
-                  </span>
-                  <ul className="list-disc ml-6">
-                    <li>471 rooms</li>
-                    <li>Cost: AED 1.5 billion</li>
-                    <li>Designer: M/S BRT, Germany</li>
-                    <li>Interior Designer: M/s HBA, UAE</li>
-                  </ul>
-                </li>
-                <li>
-                  <span className="font-bold italic">
-                    IBEROTEL MIRAMAR RESORT-Aqqa, Fujairah, UAE
-                  </span>
-                  <ul className="list-disc ml-6">
-                    <li>5-star hotel</li>
-                    <li>323 hotel rooms</li>
-                  </ul>
-                </li>
-                <li>
-                  <span className="font-bold italic">New Wajba Palace</span>
-                  <ul className="list-disc ml-6">
-                    <li>Cost: QR 550,000,000</li>
-                    <li>Interior Designer: M/s Alberto Pinto, France</li>
-                  </ul>
-                </li>
-                <li>
-                  <span className="font-bold italic">Beach Palace</span>
-                  <ul className="list-disc ml-6">
-                    <li>Cost: QR 500,000,000</li>
-                    <li>Interior Designer: M/s Remi Teiser, France</li>
-                  </ul>
-                </li>
-                <li>
-                  <span className="font-bold italic">
-                    Doha Mall in Abu Hamour
-                  </span>
-                  <ul className="list-disc ml-6">
-                    <li>Cost: QR 1.2 billion</li>
-                  </ul>
-                </li>
-                <li>
-                  <span className="font-bold italic">
-                    Al-Mirqab Mall at the Commercial Street (Al Nasr Road) and
-                    Barazan Mall at Alkuraitiat Commercial area
-                  </span>
-                </li>
-                <li>
-                  <span className="font-bold italic">
-                    The first tower in Giza, including the Four-season hotel,
-                    Egypt
-                  </span>
-                  <ul className="list-disc ml-6">
-                    <li>Supervised finishing works</li>
-                  </ul>
-                </li>
-                <li>
-                  <span className="font-bold italic">
-                    Robinson and Sheraton Abu Suma hotels, Safaga, Egypt
-                  </span>
-                </li>
-              </ul>
+        </button>
+      </div>
+      <div id="HighRise" className="flex flex-col justify-between items-center">
+        <BoxReveal duration={1.5}>
+          <p className="text-white mb-8 text-3xl">A - High Rise</p>
+        </BoxReveal>
+        <div className="flex flex-row w-screen text-white justify-around">
+          <div className="flex nassima-info flex-row flex-1 justify-evenly border-r border-white ">
+            <div className="">
+              <BoxReveal duration={0.7}>
+                <p className="font-extralight border-b mb-3 text-2xl">
+                  1 - Nassima Towers, Dubai
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={1.2}>
+                <p>
+                  Height: <span> 270m </span>
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={1.0}>
+                <p>
+                  Floors: <span> 66 </span>
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={1.5}>
+                <p>
+                  Cost: <span>1.5 Billion AED</span>
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={1.3}>
+                <p>
+                  Designer: <span>M/S BRT (Germany)</span>
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={1.8}>
+                <p>
+                  Interior Designer: <span>M/S HBA (UAE)</span>
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={2.0}>
+                <p>
+                  Owner <span>Acico</span>
+                </p>
+              </BoxReveal>
+            </div>
+            <div>
+              <BoxReveal duration={0.8}>
+                <p className="font-extralight text-2xl border-b mb-3">
+                  Includes:
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={1.0}>
+                <ul className="list-disc ml-6">
+                  <li>Japaense Airlines</li>
+                  <li>
+                    <strong>119</strong> Residential apartments &{" "}
+                    <strong>66 </strong>offices
+                  </li>
+                </ul>
+              </BoxReveal>
+              <BoxReveal duration={1.4}>
+                <p className="ml-4">15 Floors with:</p>
+              </BoxReveal>
+              <BoxReveal duration={2.0}>
+                <ul className="list-disc ml-12">
+                  <li>Restaurants</li>
+                  <li>Swimming Pools</li>
+                  <li>Executive Lounge</li>
+                  <li>Nightclub</li>
+                  <li>Lobby & Reception</li>
+                  <li>2 Basement floors</li>
+                  <li>4 Mechanical Floors</li>
+                </ul>
+              </BoxReveal>
             </div>
           </div>
+          <div className="flex-1 abbico-info flex flex-row justify-evenly">
+            <div>
+              <BoxReveal duration={1.5}>
+                <p className="text-2xl font-extralight border-b mb-3">
+                  2 - ABBICO Tower, Sharjah
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={1.1}>
+                <p>
+                  Height: <span> 186m</span>
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={1.6}>
+                <p>
+                  Floors: <span>50</span>
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={2.0}>
+                <p>
+                  Cost: <span>370M AED</span>
+                </p>
+              </BoxReveal>
+            </div>
+            <div>
+              <BoxReveal duration={1.3}>
+                <p className="text-2xl font-extralight border-b mb-3">
+                  Components
+                </p>
+              </BoxReveal>
+              <BoxReveal duration={1.7}>
+                <ul className="ml-6 list-disc">
+                  <li>
+                    <strong>333 </strong>Residential Apartments
+                  </li>
+                  <li>Health club</li>
+                  <li>Helopad</li>
+                  <li>Basement</li>
+                </ul>
+              </BoxReveal>
+            </div>
+          </div>
+        </div>
 
-          <div className="bg-white hiddenhidden rounded-md flex flex-row w-[80%] items-start justify-between mb-6">
+        <button
+          className="mt-[5rem]"
+          onClick={() => scrollToNextSection("Resorts")}
+        >
+          <FontAwesomeIcon
+            icon={faCircleArrowDown}
+            className="mt-2"
+            style={{ color: "#14ff72cb" }}
+            size="2x"
+          />
+        </button>
+      </div>
+
+      <div
+        id="Resorts"
+        className="text-white min-h-[15rem] flex flex-col items-center justify-evenly text-center mt-[30rem]"
+      >
+        <BoxReveal duration={1.0}>
+          <p className="text-4xl font-extralight border-white mb-4">
+            B - Resorts
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={1.2}>
+          <p className="font-extralight mb-2 border-b w-fit text-2xl">
+            IBEROTEL MIRAMAR RESORT, Aqqa, Fujairah
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={1.4}>
+          <p className="font-extralight">
+            <strong>5</strong> star hotel
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={1.6}>
+          <p className="font-extralight">
+            <strong>323</strong> Hotel Rooms and suites
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={1.8}>
+          <p className="font-extralight">
+            <strong>
+              1500m<sup>2</sup>
+            </strong>{" "}
+            swimming pool
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={2.0}>
+          <p className="font-extralight">Covered Swimming pool</p>
+        </BoxReveal>
+        <BoxReveal duration={2.2}>
+          <p className="font-extralight">Health Club</p>
+        </BoxReveal>
+        <BoxReveal duration={2.4}>
+          <p className="font-extralight">
+            <strong>83 </strong>room staff accommodation + restaurants
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={2.6}>
+          <p className="font-extralight">
+            <strong>Owner: </strong>Travco Travel Company
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={2.8}>
+          <p className="font-extralight">
+            <strong>Cost: </strong> 350 Million
+          </p>
+        </BoxReveal>
+        <button
+          className="mt-[5rem]"
+          onClick={() => scrollToNextSection("Luxury")}
+        >
+          <FontAwesomeIcon
+            icon={faCircleArrowDown}
+            className="mt-2"
+            style={{ color: "#14ff72cb" }}
+            size="2x"
+          />
+        </button>
+      </div>
+
+      <div className="mt-[30rem] text-center items-center flex flex-col">
+        <BoxReveal duration={1.0}>
+          <p className="text-white text-4xl font-extralight mb-4">
+            C - Luxury Buildings
+          </p>
+        </BoxReveal>
+      </div>
+      <div id="Luxury" className="flex flex-col justify-center">
+        <div className="luxury-info text-white justify-evenly flex flex-row">
+          <div className="min-h-[15rem] justify-evenly flex-1 flex flex-col border-r items-center border-white">
+            <BoxReveal duration={1.0}>
+              <p className="text-2xl w-fit font-extralight border-b mb-3">
+                1 - Wajbah Palace
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.2}>
+              <p className="font-extralight">
+                <strong>Cost: </strong> QR550 M
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.5}>
+              <p className="font-extralight">
+                <strong>Interior Designer:</strong> M/s Alberto Pinto-France
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.8}>
+              <p className="font-extralight">
+                <strong>Owner: </strong> H.E.Shk. Hamad Bin Jassim Al-Thani.
+              </p>
+            </BoxReveal>
+          </div>
+          <div className="flex-1 flex flex-col justify-evenly border-r items-center border-white">
+            <BoxReveal duration={1.0}>
+              <p className="text-2xl w-fit font-extralight border-b mb-3">
+                2 - Beach Palace
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.3}>
+              <p className="font-extralight">
+                <strong>Cost: </strong> QR500 Million
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.6}>
+              <p className="font-extralight">
+                <strong>Interior Designer:</strong> M/s Remi Teiser-France.
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.9}>
+              <p className="font-extralight">
+                <strong>Owner: </strong> H.E.Shk. Hamad Bin Jassim Al-Thani.
+              </p>
+            </BoxReveal>
+          </div>
+          <div className="flex-[1.2] flex flex-col items-center">
+            <BoxReveal duration={1.1}>
+              <p className="text-2xl mt-[24px] mb-[2.2rem] font-extralight border-b">
+                3 - Ramadan Tent
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.4}>
+              <p className="mb-[2.2rem] font-semibold">
+                Most luxurious permanent tent in the Middle East
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.7}>
+              <p className="font-extralight">
+                <strong>Interior Designer: </strong> M/s Zeynep Fadillioglu
+                (Türkiye).
+              </p>
+            </BoxReveal>
+          </div>
+          <div className="flex-1 flex flex-col border-l items-center border-white">
+            <BoxReveal duration={1.2}>
+              <p className="text-2xl font-extralight mt-[24px] mb-[2.2rem] border-b">
+                4 - The first Tower, Giza
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.5}>
+              <p>
+                <strong>Including the Four season hotel</strong>
+              </p>
+            </BoxReveal>
+          </div>
+        </div>
+        <button
+          className="mt-[5rem]"
+          onClick={() => scrollToNextSection("Commercial")}
+        >
+          <FontAwesomeIcon
+            icon={faCircleArrowDown}
+            className="mt-2"
+            style={{ color: "#14ff72cb" }}
+            size="2x"
+          />
+        </button>
+      </div>
+
+      <div id="Commercial" className="flex flex-col text-center mt-[30rem]">
+        <div className="flex flex-col justify-center items-center">
+          <BoxReveal duration={1.0}>
+            <p className="text-white text-4xl font-extralight mb-4">
+              D - Commercial Buildings
+            </p>
+          </BoxReveal>
+        </div>
+        <div className="text-white min-h-[15rem] flex flex-row justify-evenly">
+          <div className="flex flex-1 flex-col border-r items-center justify-evenly border-white">
+            <BoxReveal duration={1.1}>
+              <p className="text-2xl w-fit border-b border-white font-extralight">
+                1 - Doha Mall, Doha
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.3}>
+              <p className="font-extralight">
+                <strong>Cost: </strong> QR 1.1 Billion
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.5}>
+              <p className="font-semibold">
+                Largest mall in Qatar during construction
+              </p>
+            </BoxReveal>
+          </div>
+          <div className="flex flex-1 flex-col border-r items-center border-white">
+            <BoxReveal duration={1.2}>
+              <p className="text-2xl border-b border-white mt-[2.2rem] mb-[2rem] w-fit font-extralight">
+                2 - Al Mirqab Mall, Doha
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.4}>
+              <p className="font-extralight">
+                <strong>Cost: </strong> QR400 Million
+              </p>
+            </BoxReveal>
+          </div>
+          <div className="flex flex-1 flex-col items-center">
+            <BoxReveal duration={1.3}>
+              <p className="text-2xl font-extralight mt-[2.2rem] border-b w-fit border-white">
+                3 - Barzan Mall, Alkhuraitiat
+              </p>
+            </BoxReveal>
+          </div>
+        </div>
+        <button
+          className="mt-[5rem]"
+          onClick={() => scrollToNextSection("Compounds")}
+        >
+          <FontAwesomeIcon
+            icon={faCircleArrowDown}
+            className="mt-2"
+            style={{ color: "#14ff72cb" }}
+            size="2x"
+          />
+        </button>
+      </div>
+
+      <div id="Compounds" className="flex flex-col text-center mt-[30rem]">
+        <div className="flex flex-col justify-center items-center w-screen">
+          <BoxReveal duration={1.0}>
+            <p className="text-white text-4xl font-extralight mb-4">
+              E - Compounds
+            </p>
+          </BoxReveal>
+        </div>
+
+        <div className="flex text-white flex-row min-h-[15rem] justify-evenly">
+          <div className="flex flex-col flex-1 border-r items-center border-white justify-evenly">
+            <BoxReveal duration={1.1}>
+              <p className="text-2xl font-extralight border-b mb-4 2-fit">
+                1 - Four Seasons Accommodation, Dubai
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.3}>
+              <p className="font-extralight">
+                <strong>Cost: </strong> AED 550M
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.5}>
+              <p>2B + G + 4 Floors & Town house</p>
+            </BoxReveal>
+          </div>
+          <div className="flex flex-col flex-1 items-center border-r justify-evenly">
+            <BoxReveal duration={1.2}>
+              <p className="text-2xl font-extralight mt-5 border-b border-white w-fit">
+                2 - Laverna, Doha
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.4}>
+              <p className="font-extralight">
+                <strong>165 </strong>Villas
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.6}>
+              <p className="font-extralight">Clubhouse</p>
+            </BoxReveal>
+            <BoxReveal duration={1.8}>
+              <p className="font-extralight">Swimming Pools</p>
+            </BoxReveal>
+            <BoxReveal duration={2.0}>
+              <p className="font-extralight">Guard House</p>
+            </BoxReveal>
+          </div>
+          <div className="flex flex-col items-center flex-1">
+            <BoxReveal duration={1.3}>
+              <p className="text-2xl w-fit mt-[2.2rem] border-b border-white font-extralight">
+                3 - Aziziya Development, Doha
+              </p>
+            </BoxReveal>
+          </div>
+        </div>
+        <button
+          className="mt-[5rem]"
+          onClick={() => scrollToNextSection("Museums")}
+        >
+          <FontAwesomeIcon
+            icon={faCircleArrowDown}
+            className="mt-2"
+            style={{ color: "#14ff72cb" }}
+            size="2x"
+          />
+        </button>
+      </div>
+
+      <div
+        id="Museums"
+        className="flex flex-col text-center text-white mt-[30rem]"
+      >
+        <div className="flex flex-col w-screen items-center justify-center">
+          <BoxReveal duration={1.0}>
+            <p className="font-extralight text-4xl mb-4">F - Museums</p>
+          </BoxReveal>
+        </div>
+
+        <div className="flex flex-row min-h-[15rem] justify-evenly">
+          <div className="flex flex-1 flex-col border-r items-center">
+            <BoxReveal duration={1.2}>
+              <p className="text-2xl border-b font-extralight mt-[2.2rem] mb-[2.5rem]">
+                1 - Dunshway Museum, Cairo
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.4}>
+              <p className="font-extralight">
+                <strong>Owner: </strong> Egyptian Ministry of Culture
+              </p>
+            </BoxReveal>
+          </div>
+          <div className="flex flex-1 flex-col items-center justify-evenly">
+            <BoxReveal duration={1.3}>
+              <p className="text-2xl font-extralight border-b border-white w-fit">
+                2 - EXPO 2000
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.5}>
+              <p>Egyptian booth in Hannover, Germany</p>
+            </BoxReveal>
+            <BoxReveal duration={1.7}>
+              <p className="font-extralight">
+                <strong>Owner: </strong> Egyptian Ministry of Culture
+              </p>
+            </BoxReveal>
+          </div>
+        </div>
+        <button
+          className="mt-[5rem]"
+          onClick={() => scrollToNextSection("Hotels")}
+        >
+          <FontAwesomeIcon
+            icon={faCircleArrowDown}
+            className="mt-2"
+            style={{ color: "#14ff72cb" }}
+            size="2x"
+          />
+        </button>
+      </div>
+
+      <div id="Hotels" className="flex flex-col text-center mt-[30rem]">
+        <div className="flex flex-col justify-center items-center">
+          <BoxReveal duration={1.0}>
+            <p className="text-white text-4xl font-extralight mb-4">
+              G - Hotels
+            </p>
+          </BoxReveal>
+        </div>
+        <div className="text-white min-h-[15rem] flex flex-row justify-evenly">
+          <div className="flex flex-1 flex-col border-r items-center justify-evenly border-white">
+            <BoxReveal duration={1.1}>
+              <p className="text-2xl w-fit border-b border-white font-extralight">
+                1 - Four Season Hotel
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.3}>
+              <p className="font-extralight">
+                <strong>Cairo</strong>, Egypt
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.5}>
+              <p className="font-semibold">Supervised finishing works</p>
+            </BoxReveal>
+          </div>
+          <div className="flex flex-1 flex-col border-r items-center border-white">
+            <BoxReveal duration={1.2}>
+              <p className="text-2xl border-b border-white mt-[2.2rem] mb-[2rem] w-fit font-extralight">
+                2 - Sheraton Abu Suma
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.4}>
+              <p className="font-extralight">
+                <strong>Safaga </strong>, Egypt
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.5}>
+              <p className="font-semibold">Supervised finishing works</p>
+            </BoxReveal>
+          </div>
+          <div className="flex flex-1 flex-col items-center">
+            <BoxReveal duration={1.3}>
+              <p className="text-2xl font-extralight mt-[2.2rem] border-b w-fit border-white">
+                3 - Robinson Abu Suma
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.4}>
+              <p className="font-extralight">
+                <strong>Safaga </strong>, Egypt
+              </p>
+            </BoxReveal>
+            <BoxReveal duration={1.5}>
+              <p className="font-semibold">Supervised finishing works</p>
+            </BoxReveal>
+          </div>
+        </div>
+        <button
+          className="mt-[5rem]"
+          onClick={() => scrollToNextSection("Mosques")}
+        >
+          <FontAwesomeIcon
+            icon={faCircleArrowDown}
+            className="mt-2"
+            style={{ color: "#14ff72cb" }}
+            size="2x"
+          />
+        </button>
+      </div>
+      <div
+        id="Mosques"
+        className="flex flex-col mt-[30rem] items-center justify-evenly min-h-[15rem] text-center text-white"
+      >
+        <BoxReveal duration={1.0}>
+          <p className="text-4xl font-extralight mb-4">H - Mosques</p>
+        </BoxReveal>
+        <BoxReveal duration={1.2}>
+          <p className="text-2xl font-extralight border-b w-fit">
+            Pearl Mosque
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={1.4}>
+          <p>
+            <strong>Architectural tourist attraction</strong>
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={1.6}>
+          <p className="font-extralight">
+            <strong>Cost: </strong>QR 320 Million
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={1.8}>
+          <p className="font-extralight">
+            <strong>Interior Designer: </strong> M/s Zeynep Fadillioglu
+          </p>
+        </BoxReveal>
+        <BoxReveal duration={2.0}>
+          <p className="font-extralight">
+            <strong>Owner: </strong> H.E.Shk. Hamad Bin Jassim Al-Thani.
+          </p>
+        </BoxReveal>
+      </div>
+
+      <DotPattern className="-z-10 h-[1030vh] bg-neutral-900 opacity-60" />
+    </div>
+  );
+};
+
+export default Page;
+
+// useEffect(() => {
+//   const segments = document.querySelectorAll(".timeline-segment");
+
+//   const observer = new IntersectionObserver(
+//     (entries, observer) => {
+//       entries.forEach((entry) => {
+//         if (entry.intersectionRatio >= 0.8) {
+//           // Trigger when 50% of the element is visible
+//           entry.target.classList.add("show-segment");
+//           observer.unobserve(entry.target); // Stop observing after revealing
+//         }
+//       });
+//     },
+//     {
+//       threshold: [0.1], // Trigger at different visibility levels
+//     }
+//   );
+
+//   segments.forEach((segment) => {
+//     observer.observe(segment);
+//   });
+
+//   // Cleanup the observer on unmount
+//   return () => {
+//     if (observer) {
+//       observer.disconnect();
+//     }
+//   };
+// }, []);
+
+// useEffect(() => {
+//   const elements = document.querySelectorAll(".hiddenhidden");
+
+//   const observer = new IntersectionObserver(
+//     (entries, observer) => {
+//       entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//           entry.target.classList.add("show");
+//           observer.unobserve(entry.target);
+//         }
+//       });
+//     },
+//     {
+//       threshold: 0.4, // Trigger when 90% of the element is visible
+//     }
+//   );
+
+//   elements.forEach((element) => {
+//     observer.observe(element);
+//   });
+
+//   return () => {
+//     if (observer) {
+//       observer.disconnect();
+//     }
+//   };
+// }, []);
+
+{
+  /* <div className="bg-white hiddenhidden rounded-md flex flex-row w-[80%] items-start justify-between mb-6">
             <div className="w-full">
               <h2 className="text-xl font-bold italic">
                 Professional Responsibilities (1/3):
@@ -966,10 +1471,16 @@ const Page = () => {
             <span className="l-container-arrow"></span>
           </div>
         </div>
-      </div>
-      <DotPattern className="-z-10 bg-neutral-900 opacity-60" />
-    </div>
-  );
-};
+      </div> */
+}
 
-export default Page;
+{
+  /* <div className="timeline">
+{Array.from({ length: 80 }).map((_, index) => (
+  <div
+    key={index}
+    className="timeline-segment"
+    style={{ top: `${(index + 1) * 100}px` }}
+  ></div>
+))} */
+}

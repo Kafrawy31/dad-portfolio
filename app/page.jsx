@@ -2,15 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import gsap from "gsap";
-import { TextGenerateEffect } from "./components/text-generate";
-import {
-  TextRevealCard,
-  TextRevealCardDescription,
-  TextRevealCardTitle,
-} from "./components/text-reveal-card";
-import submit from "../public/submit.svg";
-import Image from "next/image";
-import Link from "next/link";
+import BoxReveal from "./components/box-reveal";
 import TransitionLink from "@/lib/TransitionLink";
 import HyperText from "./components/hyper-text";
 import DotPattern from "./components/DotPattern";
@@ -58,8 +50,8 @@ const LoadingPage = () => {
   return (
     <>
       <div className={`container ${isLoaded ? "loaded" : ""}`}>
-        <div className="flex flex-col justify-center min-h-screen min-w-screen align-center text-center">
-          <div className="mb-3">
+        <div className="flex flex-col  min-h-screen min-w-screen justify-evenly items-center text-center">
+          <div>
             <HyperText
               text="Welcome to my portfolio"
               className="ml-2 text-2xl"
@@ -67,16 +59,45 @@ const LoadingPage = () => {
               delay={7200}
             />
           </div>
-          <TransitionLink
-            className="link-btn mt-5 relative px-2 py-1"
-            href="Experience"
-          >
-            <span className="qual-btn">
-              {" "}
-              My work experience <FontAwesomeIcon icon={faArrowDown} />
-            </span>
-            <i></i>
-          </TransitionLink>
+          <div className="flex w-[40%] flex-col items-center">
+            <BoxReveal delay={8} duration={1.2}>
+              <p className="text-3xl font-thin">About me</p>
+            </BoxReveal>
+            <BoxReveal delay={8.3} duration={1.6}>
+              <p className="text-container-about font-thin text-base">
+                I have over 25 years of experience in construction, managing
+                prestigious projects in Qatar, UAE, and Egypt, including
+                high-rise towers, luxury hotels, malls, and villas. I excel in
+                project management, coordination, and 5-star finishing, with
+                strong troubleshooting skills and a solid understanding of FIDIC
+                contract management. I&apos;ve developed effective procedures
+                for budget and schedule control and have extensive experience in
+                infrastructure design and quality assurance.
+              </p>
+            </BoxReveal>
+          </div>
+          <div className="flex flex-col w-[40%] justify-evenly  items-center">
+            <BoxReveal duration={1.2} delay={9.3}>
+              <p className="font-thin text-3xl">Career objective</p>
+            </BoxReveal>
+            <BoxReveal className="w-[40%]" delay={9.6} duration={2}>
+              <p className="text-container-about font-thin text-base">
+                I&apos;m seeking a challenging Project Management role where I
+                can apply my 25+ years of experience in leading high-profile
+                construction projects across Qatar, UAE, and Egypt.
+              </p>
+            </BoxReveal>
+
+            <BoxReveal duration={1.2} delay={2.6}>
+              <p className="font-thin text-3xl mt-[2rem]">Education</p>
+            </BoxReveal>
+            <BoxReveal className="w-[40%]" delay={2.9} duration={2}>
+              <p className="text-container-about font-thin text-base">
+                I graduated from the University of Cairo with a B.Sc. of
+                Architecture - Faculty of Engineering in 1988
+              </p>
+            </BoxReveal>
+          </div>
         </div>
       </div>
       <div className={`loading-page ${isLoaded ? "hidden" : ""}`}>
@@ -98,7 +119,7 @@ const LoadingPage = () => {
           </svg>
         </div>
         <div className="name-container">
-          <div className="logo-name">Khaled Elkafrawy</div>
+          <div className="logo-name font-light">Khaled Elkafrawy</div>
         </div>
       </div>
       <DotPattern className="opacity-60 h-[100vh]" />

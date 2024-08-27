@@ -4,21 +4,108 @@ import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { animatePageIn } from "@/lib/animations";
 import TransitionLink from "@/lib/TransitionLink";
+import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 export default function Template({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     animatePageIn();
+
+    const selBtn = document.getElementById("sel-btn");
+
+    if (selBtn) {
+      const handleButtonClick = () => {
+        selBtn.classList.toggle("active");
+        console.log("this button is active");
+      };
+
+      selBtn.addEventListener("click", handleButtonClick);
+
+      // Cleanup function to remove event listener when the component unmounts
+      return () => {
+        selBtn.removeEventListener("click", handleButtonClick);
+      };
+    }
   }, []);
   return (
     <div>
-      <TransitionLink
-        className="link-btn fixed top-10 left-6 z-[1000] py-1 px-2"
-        href="Contact"
-      >
-        <span className="qual-btn text-xs">Get in touch</span>
-        <i></i>
-      </TransitionLink>
+      <div className="sel-menu">
+        <div className="sel-btn" id="sel-btn">
+          <p className="font-light ">MENU</p>
+        </div>
+        <ul className="sel-menu-list">
+          <li
+            style={{ "--i": 7 } as React.CSSProperties}
+            className="sel-option"
+          >
+            <TransitionLink href="Contact" className="link-btn relative">
+              <span className="qual-btn text-xs">Contact me</span>
+              <i></i>
+            </TransitionLink>
+          </li>
+          <li
+            style={{ "--i": 6 } as React.CSSProperties}
+            className="sel-option"
+          >
+            <TransitionLink className="link-btn relative" href="About">
+              <span className="qual-btn text-xs">About me</span>
+              <i></i>
+            </TransitionLink>
+          </li>
+          <li
+            style={{ "--i": 5 } as React.CSSProperties}
+            className="sel-option"
+          >
+            <TransitionLink className="link-btn relative" href="KeyProjects">
+              <span className="qual-btn text-xs">Key projects</span>
+              <i></i>
+            </TransitionLink>
+          </li>
+          <li
+            style={{ "--i": 4 } as React.CSSProperties}
+            className="sel-option"
+          >
+            <TransitionLink
+              className="link-btn relative"
+              href="Responsibilities"
+            >
+              <span className="qual-btn text-xs">Responsibilities</span>
+              <i></i>
+            </TransitionLink>
+          </li>
+          <li
+            style={{ "--i": 3 } as React.CSSProperties}
+            className="sel-option"
+          >
+            <TransitionLink className="link-btn relative" href="Experience">
+              <span className="qual-btn text-xs">Work experience</span>
+              <i></i>
+            </TransitionLink>
+          </li>
+          <li
+            className="sel-option"
+            style={{ "--i": 2 } as React.CSSProperties}
+          >
+            <TransitionLink className="link-btn relative" href="Projects">
+              <span className="qual-btn text-xs">Certficates</span>
+              <i></i>
+            </TransitionLink>
+          </li>
+
+          <li
+            className="sel-option"
+            style={{ "--i": 1 } as React.CSSProperties}
+          >
+            <TransitionLink className="link-btn relative" href="Projects">
+              <span className="qual-btn text-xs">Showcase</span>
+              <i></i>
+            </TransitionLink>
+          </li>
+        </ul>
+      </div>
+
       <svg
-        className="fixed top-12 w-6 z-10"
+        className="fixed top-12  left-2 w-6 z-10"
         id=""
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
@@ -29,7 +116,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         />
       </svg>
       <svg
-        className="fixed z-10 top-12 w-6"
+        className="fixed z-10 top-12 left-2 w-6"
         id=""
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"

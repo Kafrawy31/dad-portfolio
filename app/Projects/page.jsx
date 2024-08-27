@@ -175,7 +175,7 @@ const Home = () => {
               },
 
               {
-                src: "/wajbah-test.jpg",
+                src: "/wajbah.jpg",
                 name: "Wajbah Palace",
                 loc: "Wajbah, Qatar",
                 images: [

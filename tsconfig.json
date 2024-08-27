@@ -30,7 +30,9 @@
     "app/Projects/page.jsx",
     "app/Skills/page.tsx",
     "app/Contact/page.jsx",
-    "temp.jsx"
+    "temp.jsx",
+    "app/KeyProjects/page.tsx",
+    "app/About/page.jsx"
   ],
   "exclude": ["node_modules"]
 }
