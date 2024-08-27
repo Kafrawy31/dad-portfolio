@@ -165,8 +165,9 @@ const page = () => {
               <li>
                 In addition to the projects I managed, I was assigned the
                 emergency task of supervising the interior works and MEP works
-                of Dimensions' headquarters. I was assigned a certificate of
-                appreciation for speedy accomplishment and outstanding quality.
+                of Dimensions&apos; headquarters. I was assigned a certificate
+                of appreciation for speedy accomplishment and outstanding
+                quality.
               </li>
             </BoxReveal>
           </ul>
